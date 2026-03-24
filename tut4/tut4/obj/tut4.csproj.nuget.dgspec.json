@@ -1,0 +1,67 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Kajtek\\Desktop\\apbd-2026-ang-tut4\\apbd-2026-ang-tut4\\tut4\\tut4\\tut4.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Kajtek\\Desktop\\apbd-2026-ang-tut4\\apbd-2026-ang-tut4\\tut4\\tut4\\tut4.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Kajtek\\Desktop\\apbd-2026-ang-tut4\\apbd-2026-ang-tut4\\tut4\\tut4\\tut4.csproj",
+        "projectName": "tut4",
+        "projectPath": "C:\\Users\\Kajtek\\Desktop\\apbd-2026-ang-tut4\\apbd-2026-ang-tut4\\tut4\\tut4\\tut4.csproj",
+        "packagesPath": "C:\\Users\\Kajtek\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Kajtek\\Desktop\\apbd-2026-ang-tut4\\apbd-2026-ang-tut4\\tut4\\tut4\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Kajtek\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\Kajtek\\.dotnet\\sdk\\9.0.311/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
