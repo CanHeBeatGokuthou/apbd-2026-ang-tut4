@@ -136,7 +136,7 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task08_DistinctStudentCities()
     {
-        
+        return UniversityData.Students.Select(s => s.City).Distinct().OrderBy(c => c);
     }
 
     /// <summary>
@@ -151,7 +151,9 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task09_ThreeNewestEnrollments()
     {
-        throw NotImplemented(nameof(Task09_ThreeNewestEnrollments));
+        return UniversityData.Enrollments.OrderByDescending(e => e.EnrollmentDate).Take(3)
+            .Select(e => $"{e.EnrollmentDate:yyyy-MMM-dd ddd} -Student: {e.StudentId}" +
+                         $" -CourseId: ${e.CourseId}");
     }
 
     /// <summary>
@@ -167,7 +169,7 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task10_SecondPageOfCourses()
     {
-        throw NotImplemented(nameof(Task10_SecondPageOfCourses));
+        return UniversityData.Courses.OrderBy(c=>c.Title).Skip(2).Take(2).Select(c=>$"{c.Title} - {c.Id}");
     }
 
     /// <summary>
@@ -182,11 +184,8 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task11_JoinStudentsWithEnrollments()
     {
-        var res = UniversityData.Students.Join(UniversityData.Enrollments,
-            s => s.Id,
-            e => e.StudentId,
-            (s, e) => new {s.FirstName, s.LastName, e.EnrollmentDate});
-        return res.Select(s=>$"{s.FirstName} {s.LastName} {s.EnrollmentDate}");
+        return UniversityData.Courses.OrderBy(c=>c.Title)
+            .Skip(2).Take(2).Select(c=>$"{c.Title} - {c.Category}"); 
     }
 
     /// <summary>
@@ -202,7 +201,10 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task12_StudentCoursePairs()
     {
-        throw NotImplemented(nameof(Task12_StudentCoursePairs));
+        return UniversityData.Enrollments.Join(UniversityData.Students, e=>e.StudentId, c=>c.Id, 
+            (e,c)=> new {e.CourseId, c})
+            .Join(UniversityData.Courses, a=> a.CourseId, c=>c.Id,
+                (a,c)=> $"{a.CourseId} - {c}");
     }
 
     /// <summary>
