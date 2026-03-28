@@ -67,11 +67,13 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task04_FirstAnalyticsCourse()
     {
-        var res =  UniversityData.Courses.Where(e => e.Equals("Analytics")).Select(e => e.Title.Equals("TOP 1"));
-        if (res != null)
+        var res = UniversityData.Courses.Where(c => c.Category == "Analystics");
+        if (res == null)
         {
-            return [$"{res.Title} {res.}"];
+            return ["No course found"];
         }
+
+        return [$"{res.Select(c => c.Title)} (Starts: {res.Select(c=>c.StartDate)})"];
     }
 
     /// <summary>
@@ -88,14 +90,8 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task05_IsThereAnyInactiveEnrollment()
     {
-        var res = UniversityData.Enrollments.Where(e=>e.IsActive.Equals(false)).Select(s => $"{s.IsActive}");
-        if (res != null)
-        {
-            return res;
-        }
-        return Enumerable.Empty<string>();
-
-        throw NotImplemented(nameof(Task05_IsThereAnyInactiveEnrollment));
+        bool exst =  UniversityData.Enrollments.Any(e => e.IsActive.Equals(false));
+        return [exst ? "Yes" : "No"];
     }
 
     /// <summary>
@@ -110,10 +106,8 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task06_DoAllLecturersHaveDepartment()
     {
-        
-        
-
-        throw NotImplemented(nameof(Task06_DoAllLecturersHaveDepartment));
+     bool allHaveDept = UniversityData.Lecturers.All(l => !string.IsNullOrEmpty(l.Department));
+     return [allHaveDept.ToString()];
     }
 
     /// <summary>
@@ -127,9 +121,8 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task07_CountActiveEnrollments()
     {
-        var res = UniversityData.Enrollments.Where(e => e.IsActive.Equals(true))
-            .Select(e => $"{e.Id}").Count();
-        throw NotImplemented(nameof(Task07_CountActiveEnrollments));
+        int count = UniversityData.Enrollments.Count(e => e.IsActive);
+        return [$"Task7 count: {count}"];
     }
 
     /// <summary>
@@ -143,9 +136,7 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task08_DistinctStudentCities()
     {
-        var res = UniversityData.Students.Select(e => e.City).Distinct();
-        return res;
-        throw NotImplemented(nameof(Task08_DistinctStudentCities));
+        
     }
 
     /// <summary>
